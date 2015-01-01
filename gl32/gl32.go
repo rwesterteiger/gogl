@@ -270,6 +270,7 @@ package gl32
 // void (APIENTRYP ptrglBlendColor)(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
 // void (APIENTRYP ptrglBlendEquation)(GLenum mode);
 // void (APIENTRYP ptrglDrawRangeElements)(GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, GLvoid* indices);
+// void (APIENTRYP ptrglTexImage3D)(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, GLvoid* pixels);
 // void (APIENTRYP ptrglTexSubImage3D)(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLvoid* pixels);
 // void (APIENTRYP ptrglCopyTexSubImage3D)(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height);
 // //  VERSION_1_3
@@ -394,6 +395,26 @@ package gl32
 // void (APIENTRYP ptrglVertexAttribIPointer)(GLuint index, GLint size, GLenum type, GLsizei stride, GLvoid* pointer);
 // void (APIENTRYP ptrglGetVertexAttribIiv)(GLuint index, GLenum pname, GLint* params);
 // void (APIENTRYP ptrglGetVertexAttribIuiv)(GLuint index, GLenum pname, GLuint* params);
+// void (APIENTRYP ptrglVertexAttribI1i)(GLuint index, GLint x);
+// void (APIENTRYP ptrglVertexAttribI2i)(GLuint index, GLint x, GLint y);
+// void (APIENTRYP ptrglVertexAttribI3i)(GLuint index, GLint x, GLint y, GLint z);
+// void (APIENTRYP ptrglVertexAttribI4i)(GLuint index, GLint x, GLint y, GLint z, GLint w);
+// void (APIENTRYP ptrglVertexAttribI1ui)(GLuint index, GLuint x);
+// void (APIENTRYP ptrglVertexAttribI2ui)(GLuint index, GLuint x, GLuint y);
+// void (APIENTRYP ptrglVertexAttribI3ui)(GLuint index, GLuint x, GLuint y, GLuint z);
+// void (APIENTRYP ptrglVertexAttribI4ui)(GLuint index, GLuint x, GLuint y, GLuint z, GLuint w);
+// void (APIENTRYP ptrglVertexAttribI1iv)(GLuint index, GLint* v);
+// void (APIENTRYP ptrglVertexAttribI2iv)(GLuint index, GLint* v);
+// void (APIENTRYP ptrglVertexAttribI3iv)(GLuint index, GLint* v);
+// void (APIENTRYP ptrglVertexAttribI4iv)(GLuint index, GLint* v);
+// void (APIENTRYP ptrglVertexAttribI1uiv)(GLuint index, GLuint* v);
+// void (APIENTRYP ptrglVertexAttribI2uiv)(GLuint index, GLuint* v);
+// void (APIENTRYP ptrglVertexAttribI3uiv)(GLuint index, GLuint* v);
+// void (APIENTRYP ptrglVertexAttribI4uiv)(GLuint index, GLuint* v);
+// void (APIENTRYP ptrglVertexAttribI4bv)(GLuint index, GLbyte* v);
+// void (APIENTRYP ptrglVertexAttribI4sv)(GLuint index, GLshort* v);
+// void (APIENTRYP ptrglVertexAttribI4ubv)(GLuint index, GLubyte* v);
+// void (APIENTRYP ptrglVertexAttribI4usv)(GLuint index, GLushort* v);
 // void (APIENTRYP ptrglGetUniformuiv)(GLuint program, GLint location, GLuint* params);
 // void (APIENTRYP ptrglBindFragDataLocation)(GLuint program, GLuint color, GLchar* name);
 // GLint (APIENTRYP ptrglGetFragDataLocation)(GLuint program, GLchar* name);
@@ -677,6 +698,9 @@ package gl32
 // }
 // void goglDrawRangeElements(GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type_, GLvoid* indices) {
 // 	(*ptrglDrawRangeElements)(mode, start, end, count, type_, indices);
+// }
+// void goglTexImage3D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type_, GLvoid* pixels) {
+// 	(*ptrglTexImage3D)(target, level, internalformat, width, height, depth, border, format, type_, pixels);
 // }
 // void goglTexSubImage3D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type_, GLvoid* pixels) {
 // 	(*ptrglTexSubImage3D)(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type_, pixels);
@@ -1037,6 +1061,66 @@ package gl32
 // }
 // void goglGetVertexAttribIuiv(GLuint index, GLenum pname, GLuint* params) {
 // 	(*ptrglGetVertexAttribIuiv)(index, pname, params);
+// }
+// void goglVertexAttribI1i(GLuint index, GLint x) {
+// 	(*ptrglVertexAttribI1i)(index, x);
+// }
+// void goglVertexAttribI2i(GLuint index, GLint x, GLint y) {
+// 	(*ptrglVertexAttribI2i)(index, x, y);
+// }
+// void goglVertexAttribI3i(GLuint index, GLint x, GLint y, GLint z) {
+// 	(*ptrglVertexAttribI3i)(index, x, y, z);
+// }
+// void goglVertexAttribI4i(GLuint index, GLint x, GLint y, GLint z, GLint w) {
+// 	(*ptrglVertexAttribI4i)(index, x, y, z, w);
+// }
+// void goglVertexAttribI1ui(GLuint index, GLuint x) {
+// 	(*ptrglVertexAttribI1ui)(index, x);
+// }
+// void goglVertexAttribI2ui(GLuint index, GLuint x, GLuint y) {
+// 	(*ptrglVertexAttribI2ui)(index, x, y);
+// }
+// void goglVertexAttribI3ui(GLuint index, GLuint x, GLuint y, GLuint z) {
+// 	(*ptrglVertexAttribI3ui)(index, x, y, z);
+// }
+// void goglVertexAttribI4ui(GLuint index, GLuint x, GLuint y, GLuint z, GLuint w) {
+// 	(*ptrglVertexAttribI4ui)(index, x, y, z, w);
+// }
+// void goglVertexAttribI1iv(GLuint index, GLint* v) {
+// 	(*ptrglVertexAttribI1iv)(index, v);
+// }
+// void goglVertexAttribI2iv(GLuint index, GLint* v) {
+// 	(*ptrglVertexAttribI2iv)(index, v);
+// }
+// void goglVertexAttribI3iv(GLuint index, GLint* v) {
+// 	(*ptrglVertexAttribI3iv)(index, v);
+// }
+// void goglVertexAttribI4iv(GLuint index, GLint* v) {
+// 	(*ptrglVertexAttribI4iv)(index, v);
+// }
+// void goglVertexAttribI1uiv(GLuint index, GLuint* v) {
+// 	(*ptrglVertexAttribI1uiv)(index, v);
+// }
+// void goglVertexAttribI2uiv(GLuint index, GLuint* v) {
+// 	(*ptrglVertexAttribI2uiv)(index, v);
+// }
+// void goglVertexAttribI3uiv(GLuint index, GLuint* v) {
+// 	(*ptrglVertexAttribI3uiv)(index, v);
+// }
+// void goglVertexAttribI4uiv(GLuint index, GLuint* v) {
+// 	(*ptrglVertexAttribI4uiv)(index, v);
+// }
+// void goglVertexAttribI4bv(GLuint index, GLbyte* v) {
+// 	(*ptrglVertexAttribI4bv)(index, v);
+// }
+// void goglVertexAttribI4sv(GLuint index, GLshort* v) {
+// 	(*ptrglVertexAttribI4sv)(index, v);
+// }
+// void goglVertexAttribI4ubv(GLuint index, GLubyte* v) {
+// 	(*ptrglVertexAttribI4ubv)(index, v);
+// }
+// void goglVertexAttribI4usv(GLuint index, GLushort* v) {
+// 	(*ptrglVertexAttribI4usv)(index, v);
 // }
 // void goglGetUniformuiv(GLuint program, GLint location, GLuint* params) {
 // 	(*ptrglGetUniformuiv)(program, location, params);
@@ -1413,6 +1497,8 @@ package gl32
 // 	if(ptrglBlendEquation == NULL) return 1;
 // 	ptrglDrawRangeElements = goglGetProcAddress("glDrawRangeElements");
 // 	if(ptrglDrawRangeElements == NULL) return 1;
+// 	ptrglTexImage3D = goglGetProcAddress("glTexImage3D");
+// 	if(ptrglTexImage3D == NULL) return 1;
 // 	ptrglTexSubImage3D = goglGetProcAddress("glTexSubImage3D");
 // 	if(ptrglTexSubImage3D == NULL) return 1;
 // 	ptrglCopyTexSubImage3D = goglGetProcAddress("glCopyTexSubImage3D");
@@ -1667,6 +1753,46 @@ package gl32
 // 	if(ptrglGetVertexAttribIiv == NULL) return 1;
 // 	ptrglGetVertexAttribIuiv = goglGetProcAddress("glGetVertexAttribIuiv");
 // 	if(ptrglGetVertexAttribIuiv == NULL) return 1;
+// 	ptrglVertexAttribI1i = goglGetProcAddress("glVertexAttribI1i");
+// 	if(ptrglVertexAttribI1i == NULL) return 1;
+// 	ptrglVertexAttribI2i = goglGetProcAddress("glVertexAttribI2i");
+// 	if(ptrglVertexAttribI2i == NULL) return 1;
+// 	ptrglVertexAttribI3i = goglGetProcAddress("glVertexAttribI3i");
+// 	if(ptrglVertexAttribI3i == NULL) return 1;
+// 	ptrglVertexAttribI4i = goglGetProcAddress("glVertexAttribI4i");
+// 	if(ptrglVertexAttribI4i == NULL) return 1;
+// 	ptrglVertexAttribI1ui = goglGetProcAddress("glVertexAttribI1ui");
+// 	if(ptrglVertexAttribI1ui == NULL) return 1;
+// 	ptrglVertexAttribI2ui = goglGetProcAddress("glVertexAttribI2ui");
+// 	if(ptrglVertexAttribI2ui == NULL) return 1;
+// 	ptrglVertexAttribI3ui = goglGetProcAddress("glVertexAttribI3ui");
+// 	if(ptrglVertexAttribI3ui == NULL) return 1;
+// 	ptrglVertexAttribI4ui = goglGetProcAddress("glVertexAttribI4ui");
+// 	if(ptrglVertexAttribI4ui == NULL) return 1;
+// 	ptrglVertexAttribI1iv = goglGetProcAddress("glVertexAttribI1iv");
+// 	if(ptrglVertexAttribI1iv == NULL) return 1;
+// 	ptrglVertexAttribI2iv = goglGetProcAddress("glVertexAttribI2iv");
+// 	if(ptrglVertexAttribI2iv == NULL) return 1;
+// 	ptrglVertexAttribI3iv = goglGetProcAddress("glVertexAttribI3iv");
+// 	if(ptrglVertexAttribI3iv == NULL) return 1;
+// 	ptrglVertexAttribI4iv = goglGetProcAddress("glVertexAttribI4iv");
+// 	if(ptrglVertexAttribI4iv == NULL) return 1;
+// 	ptrglVertexAttribI1uiv = goglGetProcAddress("glVertexAttribI1uiv");
+// 	if(ptrglVertexAttribI1uiv == NULL) return 1;
+// 	ptrglVertexAttribI2uiv = goglGetProcAddress("glVertexAttribI2uiv");
+// 	if(ptrglVertexAttribI2uiv == NULL) return 1;
+// 	ptrglVertexAttribI3uiv = goglGetProcAddress("glVertexAttribI3uiv");
+// 	if(ptrglVertexAttribI3uiv == NULL) return 1;
+// 	ptrglVertexAttribI4uiv = goglGetProcAddress("glVertexAttribI4uiv");
+// 	if(ptrglVertexAttribI4uiv == NULL) return 1;
+// 	ptrglVertexAttribI4bv = goglGetProcAddress("glVertexAttribI4bv");
+// 	if(ptrglVertexAttribI4bv == NULL) return 1;
+// 	ptrglVertexAttribI4sv = goglGetProcAddress("glVertexAttribI4sv");
+// 	if(ptrglVertexAttribI4sv == NULL) return 1;
+// 	ptrglVertexAttribI4ubv = goglGetProcAddress("glVertexAttribI4ubv");
+// 	if(ptrglVertexAttribI4ubv == NULL) return 1;
+// 	ptrglVertexAttribI4usv = goglGetProcAddress("glVertexAttribI4usv");
+// 	if(ptrglVertexAttribI4usv == NULL) return 1;
 // 	ptrglGetUniformuiv = goglGetProcAddress("glGetUniformuiv");
 // 	if(ptrglGetUniformuiv == NULL) return 1;
 // 	ptrglBindFragDataLocation = goglGetProcAddress("glBindFragDataLocation");
@@ -2808,6 +2934,7 @@ const (
 	FRAMEBUFFER_ATTACHMENT_RED_SIZE = 0x8212
 	FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE = 0x8217
 	FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = 0x8CD3
+	FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER = 0x8CD4
 	FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = 0x8CD2
 	FRAMEBUFFER_BINDING = 0x8CA6
 	FRAMEBUFFER_COMPLETE = 0x8CD5
@@ -2847,6 +2974,7 @@ const (
 	MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS = 0x8C8A
 	MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS = 0x8C8B
 	MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS = 0x8C80
+	MAX_VARYING_COMPONENTS = 0x8B4B
 	MINOR_VERSION = 0x821C
 	MIN_PROGRAM_TEXEL_OFFSET = 0x8904
 	NUM_EXTENSIONS = 0x821D
@@ -3369,6 +3497,10 @@ func BlendEquation(mode Enum)  {
 func DrawRangeElements(mode Enum, start Uint, end Uint, count Sizei, type_ Enum, indices Pointer)  {
 	C.goglDrawRangeElements((C.GLenum)(mode), (C.GLuint)(start), (C.GLuint)(end), (C.GLsizei)(count), (C.GLenum)(type_), (unsafe.Pointer)(indices))
 }
+// https://www.opengl.org/sdk/docs/man3/xhtml/glTexImage3D.xml
+func TexImage3D(target Enum, level Int, internalformat Int, width Sizei, height Sizei, depth Sizei, border Int, format Enum, type_ Enum, pixels Pointer)  {
+	C.goglTexImage3D((C.GLenum)(target), (C.GLint)(level), (C.GLint)(internalformat), (C.GLsizei)(width), (C.GLsizei)(height), (C.GLsizei)(depth), (C.GLint)(border), (C.GLenum)(format), (C.GLenum)(type_), (unsafe.Pointer)(pixels))
+}
 // https://www.opengl.org/sdk/docs/man3/xhtml/glTexSubImage3D.xml
 func TexSubImage3D(target Enum, level Int, xoffset Int, yoffset Int, zoffset Int, width Sizei, height Sizei, depth Sizei, format Enum, type_ Enum, pixels Pointer)  {
 	C.goglTexSubImage3D((C.GLenum)(target), (C.GLint)(level), (C.GLint)(xoffset), (C.GLint)(yoffset), (C.GLint)(zoffset), (C.GLsizei)(width), (C.GLsizei)(height), (C.GLsizei)(depth), (C.GLenum)(format), (C.GLenum)(type_), (unsafe.Pointer)(pixels))
@@ -3852,6 +3984,86 @@ func GetVertexAttribIiv(index Uint, pname Enum, params *Int)  {
 // https://www.opengl.org/sdk/docs/man3/xhtml/glGetVertexAttribIuiv.xml
 func GetVertexAttribIuiv(index Uint, pname Enum, params *Uint)  {
 	C.goglGetVertexAttribIuiv((C.GLuint)(index), (C.GLenum)(pname), (*C.GLuint)(params))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI1i.xml
+func VertexAttribI1i(index Uint, x Int)  {
+	C.goglVertexAttribI1i((C.GLuint)(index), (C.GLint)(x))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI2i.xml
+func VertexAttribI2i(index Uint, x Int, y Int)  {
+	C.goglVertexAttribI2i((C.GLuint)(index), (C.GLint)(x), (C.GLint)(y))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI3i.xml
+func VertexAttribI3i(index Uint, x Int, y Int, z Int)  {
+	C.goglVertexAttribI3i((C.GLuint)(index), (C.GLint)(x), (C.GLint)(y), (C.GLint)(z))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI4i.xml
+func VertexAttribI4i(index Uint, x Int, y Int, z Int, w Int)  {
+	C.goglVertexAttribI4i((C.GLuint)(index), (C.GLint)(x), (C.GLint)(y), (C.GLint)(z), (C.GLint)(w))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI1ui.xml
+func VertexAttribI1ui(index Uint, x Uint)  {
+	C.goglVertexAttribI1ui((C.GLuint)(index), (C.GLuint)(x))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI2ui.xml
+func VertexAttribI2ui(index Uint, x Uint, y Uint)  {
+	C.goglVertexAttribI2ui((C.GLuint)(index), (C.GLuint)(x), (C.GLuint)(y))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI3ui.xml
+func VertexAttribI3ui(index Uint, x Uint, y Uint, z Uint)  {
+	C.goglVertexAttribI3ui((C.GLuint)(index), (C.GLuint)(x), (C.GLuint)(y), (C.GLuint)(z))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI4ui.xml
+func VertexAttribI4ui(index Uint, x Uint, y Uint, z Uint, w Uint)  {
+	C.goglVertexAttribI4ui((C.GLuint)(index), (C.GLuint)(x), (C.GLuint)(y), (C.GLuint)(z), (C.GLuint)(w))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI1iv.xml
+func VertexAttribI1iv(index Uint, v *Int)  {
+	C.goglVertexAttribI1iv((C.GLuint)(index), (*C.GLint)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI2iv.xml
+func VertexAttribI2iv(index Uint, v *Int)  {
+	C.goglVertexAttribI2iv((C.GLuint)(index), (*C.GLint)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI3iv.xml
+func VertexAttribI3iv(index Uint, v *Int)  {
+	C.goglVertexAttribI3iv((C.GLuint)(index), (*C.GLint)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI4iv.xml
+func VertexAttribI4iv(index Uint, v *Int)  {
+	C.goglVertexAttribI4iv((C.GLuint)(index), (*C.GLint)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI1uiv.xml
+func VertexAttribI1uiv(index Uint, v *Uint)  {
+	C.goglVertexAttribI1uiv((C.GLuint)(index), (*C.GLuint)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI2uiv.xml
+func VertexAttribI2uiv(index Uint, v *Uint)  {
+	C.goglVertexAttribI2uiv((C.GLuint)(index), (*C.GLuint)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI3uiv.xml
+func VertexAttribI3uiv(index Uint, v *Uint)  {
+	C.goglVertexAttribI3uiv((C.GLuint)(index), (*C.GLuint)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI4uiv.xml
+func VertexAttribI4uiv(index Uint, v *Uint)  {
+	C.goglVertexAttribI4uiv((C.GLuint)(index), (*C.GLuint)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI4bv.xml
+func VertexAttribI4bv(index Uint, v *Byte)  {
+	C.goglVertexAttribI4bv((C.GLuint)(index), (*C.GLbyte)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI4sv.xml
+func VertexAttribI4sv(index Uint, v *Short)  {
+	C.goglVertexAttribI4sv((C.GLuint)(index), (*C.GLshort)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI4ubv.xml
+func VertexAttribI4ubv(index Uint, v *Ubyte)  {
+	C.goglVertexAttribI4ubv((C.GLuint)(index), (*C.GLubyte)(v))
+}
+// https://www.opengl.org/sdk/docs/man3/xhtml/glVertexAttribI4usv.xml
+func VertexAttribI4usv(index Uint, v *Ushort)  {
+	C.goglVertexAttribI4usv((C.GLuint)(index), (*C.GLushort)(v))
 }
 // https://www.opengl.org/sdk/docs/man3/xhtml/glGetUniformuiv.xml
 func GetUniformuiv(program Uint, location Int, params *Uint)  {
